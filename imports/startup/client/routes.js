@@ -3,6 +3,7 @@ import {mount} from 'react-mounter';
 import React from 'react';
 import Login from '/imports/ui/login'
 import Layout from '/imports/ui/layout'
+import SignUp from "../../ui/signup";
 
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
@@ -24,6 +25,17 @@ FlowRouter.route('/login', {
         }
         else {
             mount(Layout, {main: <Login />});
+
+        }
+    }
+});
+FlowRouter.route('/signup', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/signup');
+        }
+        else {
+            mount(Layout, {main: <SignUp />});
 
         }
     }

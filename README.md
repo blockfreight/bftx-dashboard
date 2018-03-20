@@ -16,6 +16,7 @@
 ### Integrate with payment gateway
 * Stripe
 * Paypal
-### Integrate with bftx
-### Integrate with erp
+### Integrate with bftx for monitoring transcations
+### Integrate with erp for data synchronization
+### Integrate with edge for authentication
 ### Create deplyment instructions/guide
