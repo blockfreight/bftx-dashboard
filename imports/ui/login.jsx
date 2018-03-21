@@ -1,17 +1,23 @@
 import React from 'react';
 import {Col, Form, FormGroup, ControlLabel, Row, Button} from 'react-bootstrap';
 
-
+var abcui = require('airbitz-core-js-ui')
 
 export default class Login extends React.Component {
     constructor() {
         super();
         this.formHandler = this.formHandler.bind(this);
         this.regForm = this.regForm.bind(this);
+        this.edge = this.edge.bind(this);
         this.state = {
             authError: false,
             validationError: ''
         }
+        _abcUi = abcui.makeABCUIContext({'apiKey': 'c0f8c038bd10d138288ff2bd56dbcb999d22801f',
+            'appId': 'com.blockfreight.dashboard',
+            'assetsPath': '/packages/node_modules/airbitz-core-js-ui/',
+            'vendorName': 'Blockfreight Dashboard',
+            'vendorImageUrl': 'https://mydomain.com/mylogo.png'});
     }
 
     formHandler(e) {
@@ -39,6 +45,12 @@ export default class Login extends React.Component {
     }
     regForm(){
         FlowRouter.go('/signup');
+
+    }
+    edge(){
+        _abcUi.openLoginWindow(function(error, account) {
+            _account = account;
+        });
     }
     render() {
         return (
@@ -67,6 +79,10 @@ export default class Login extends React.Component {
 
                 <Row>
                     <Col smOffset={2} sm={10}>
+
+                        <Button className="btn-mrg" onClick={this.edge}>
+                            Edge
+                        </Button>
                         <Button className="btn-mrg" onClick={this.regForm}>
                             Register
                         </Button>
