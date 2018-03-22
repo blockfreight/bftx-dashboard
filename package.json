@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.36",
+    "airbitz-core-js-ui": "^0.1.7",
+    "bcrypt": "^1.0.3",
     "imports": "^1.0.0",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
