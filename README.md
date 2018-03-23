@@ -25,3 +25,19 @@
 2. Customer is charged for GAS
 3. Signatures are based on Edge Authentication
 4. Funds are released by escrow agent based on Ethereum Signatures
+### Create an ability to invite someone by email as a trusted process Signer for a transaction
+### Create abbility to assign Role to Device
+### Create abbility to assign Role to a step in Smart Contract
+1. Identify Bill of Lading on Blockchain
+2. Identify Steps in Journey
+3. Identify Required Step Signatures
+4. Identify Roles for Steps
+5. Initiate Process
+6. Release Possetion of Container
+7. Claim Possetion of Container
+
+### Create a transaction composer
+The result should be represented as JSON file
+
+### Example Process Steps
+
