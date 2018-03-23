@@ -33,8 +33,8 @@
 3. Identify Required Step Signatures
 4. Identify Roles for Steps
 5. Initiate Process
-6. Release Possetion of Container
-7. Claim Possetion of Container
+6. Release Possession of Container
+7. Claim Possession of Container
 
 ### Create a transaction composer
 The result should be represented as JSON file
