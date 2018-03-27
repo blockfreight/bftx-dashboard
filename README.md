@@ -8,7 +8,7 @@
 * Transaction Lookup
 * Message Center
 * Buy Services
-* Buy Credits
+* Buy License Block
 ### Determine host
 * Heroku
 * AWS
