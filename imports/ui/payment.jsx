@@ -53,14 +53,20 @@ class Payment extends React.Component{
 
     render() {
         return (
+            <div className="col no_right_padding span_1_of_2 margin_auto float_none large_bottom_margin">
+
+
+
             <Form className="entry-form" horizontal>
 
                  <FormGroup controlId="formHorizontalUsername">
                     <Col componentClass={ControlLabel} sm={2}>
-                        Add New Card
+                        <h4>Add New Card</h4>
                     </Col>
                     <Col sm={10}>
+                        <p className="large_bottom_margin">
                         Your card will not be charged at this time. It will be kept on file and will be used as the default for future charges.
+                        </p>
                     </Col>
                 </FormGroup>
 
@@ -126,6 +132,7 @@ class Payment extends React.Component{
                     </Col>
                 </FormGroup>
             </Form>
+            </div>
         )
     }
 }

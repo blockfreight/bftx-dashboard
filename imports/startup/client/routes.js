@@ -5,6 +5,7 @@ import Login from '/imports/ui/login'
 import Layout from '/imports/ui/layout'
 import SignUp from "../../ui/signup";
 import Payment from "../../ui/payment"
+import Dashboard from "../../ui/dashboard"
 
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
@@ -38,6 +39,18 @@ FlowRouter.route('/signup', {
         else {
             mount(Layout, {main: <SignUp />});
 
+        }
+    }
+});
+
+FlowRouter.route('/dashboard', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main: <Dashboard />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
         }
     }
 });
