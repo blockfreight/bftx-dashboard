@@ -9,6 +9,7 @@ Meteor.methods({
     {
 
     },
+
     AddCard(){
         //https://stripe.com/docs/saving-cards
         // Set your secret key: remember to change this to your live secret key in production
