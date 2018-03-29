@@ -20,7 +20,7 @@ class TopMenu extends React.Component {
            <div className=" bg-light">
 
 
-               <img src="/images/blockfreight_logo_grey.svg" width="300px" />
+               <a href="/dashboard"><img src="/images/blockfreight_logo_grey.svg" width="300px" /></a>
            <nav className="navbar navbar-expand-lg navbar-light bg-light float-right">
             {/*<a className="navbar-brand" href="#">Navbar</a>*/}
 
