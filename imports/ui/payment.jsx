@@ -53,19 +53,25 @@ class Payment extends React.Component{
 
     render() {
         return (
+            <div  className="mx-auto" style={{width: 500}} >
+
+
+
             <Form className="entry-form" horizontal>
 
                  <FormGroup controlId="formHorizontalUsername">
-                    <Col componentClass={ControlLabel} sm={2}>
-                        Add New Card
+                    <Col componentClass={ControlLabel} sm={5}>
+                        <h4>Add New Card</h4>
                     </Col>
                     <Col sm={10}>
+                        <p >
                         Your card will not be charged at this time. It will be kept on file and will be used as the default for future charges.
+                        </p>
                     </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalUsername">
-                    <Col componentClass={ControlLabel} sm={2}>
+                    <Col componentClass={ControlLabel} sm={5}>
                         Name on Card
                     </Col>
                     <Col sm={10}>
@@ -74,7 +80,7 @@ class Payment extends React.Component{
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                    <Col componentClass={ControlLabel} sm={2}>
+                    <Col componentClass={ControlLabel} sm={5}>
                         Card Number
                     </Col>
                     <Col sm={10}>
@@ -126,6 +132,7 @@ class Payment extends React.Component{
                     </Col>
                 </FormGroup>
             </Form>
+            </div>
         )
     }
 }
