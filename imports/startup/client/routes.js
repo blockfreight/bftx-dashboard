@@ -22,6 +22,17 @@ FlowRouter.route('/', {
         }
     }
 });
+FlowRouter.route('/home', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
 FlowRouter.route('/login', {
     action(){
         if (Meteor.userId()) {
@@ -36,7 +47,11 @@ FlowRouter.route('/login', {
 FlowRouter.route('/signup', {
     action(){
         if (Meteor.userId()) {
-            FlowRouter.go('/signup');
+            if (Meteor.userId()) {
+                Meteor.logout(()=>{
+                    FlowRouter.go('/signup');
+                });
+            }
         }
         else {
             mount(Layout, {main: <SignUp />});
@@ -63,9 +78,7 @@ FlowRouter.route('/payment' +
             mount(Layout, {main: <Payment />});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
         }
     }
 });
@@ -76,9 +89,7 @@ FlowRouter.route('/messages' +
             mount(Layout, {main: <Messages/>});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
         }
     }
 });
@@ -89,18 +100,18 @@ FlowRouter.route('/profile' +
             mount(Layout, {main: <Profile/>});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
         }
     }
 });
 FlowRouter.route('/logout', {
     action(){
         if (Meteor.userId()) {
-            Meteor.loggingOut();
-            FlowRouter.go('/');
+            Meteor.logout(()=>{
+                FlowRouter.go('/login');
+            });
+        }else {
+            FlowRouter.go('/login');
         }
-
     }
 });
