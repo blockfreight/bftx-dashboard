@@ -6,6 +6,8 @@ import Layout from '/imports/ui/layout'
 import SignUp from "../../ui/signup";
 import Payment from "../../ui/payment"
 import Dashboard from "../../ui/dashboard"
+import Messages from "../../ui/messages";
+import Profile from "../../ui/profile";
 
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
@@ -65,5 +67,40 @@ FlowRouter.route('/payment' +
 
 
         }
+    }
+});
+FlowRouter.route('/messages' +
+    '', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main: <Messages/>});
+        }
+        else {
+            FlowRouter.go('/signup');
+
+
+        }
+    }
+});
+FlowRouter.route('/profile' +
+    '', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main: <Profile/>});
+        }
+        else {
+            FlowRouter.go('/signup');
+
+
+        }
+    }
+});
+FlowRouter.route('/logout', {
+    action(){
+        if (Meteor.userId()) {
+            Meteor.loggingOut();
+            FlowRouter.go('/');
+        }
+
     }
 });

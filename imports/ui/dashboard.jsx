@@ -53,19 +53,25 @@ class Dashboard extends React.Component{
 
     render() {
         return (
-            <Form className="entry-form" horizontal>
-
-                <FormGroup controlId="formHorizontalUsername">
-                    <Col componentClass={ControlLabel} sm={2}>
-                       Dashboard
-                    </Col>
-                    <Col sm={10}>
-                       Placeholder for widgets
-                    </Col>
-                </FormGroup>
+            <div  className="mx-auto" style={{width: 500}} >
 
 
-            </Form>
+
+                <Form className="entry-form" horizontal>
+
+                    <FormGroup controlId="formHorizontalUsername">
+                        <Col componentClass={ControlLabel} sm={5}>
+                            <h4>Dashboard</h4>
+                        </Col>
+                        <Col sm={10}>
+                            <p >
+                                Widgets Placeholder
+                            </p>
+                        </Col>
+                    </FormGroup>
+
+                </Form>
+            </div>
         )
     }
 }
