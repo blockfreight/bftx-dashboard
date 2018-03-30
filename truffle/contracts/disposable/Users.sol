@@ -24,7 +24,7 @@ contract Users is Owned {
     if (contractOwner == msg.sender || bfContractAddress == msg.sender) _;
   }
 
-  function setPropy(address bf) onlyContractOwner() {
+  function setBF(address bf) onlyContractOwner() {
     bfContractAddress=bf;
   }
 

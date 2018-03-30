@@ -120,7 +120,6 @@ contract BaseBOL is Owned, AddressChecker {
     /// EVENTS ///
 
     event StatusUpdate(Status status);
-    //event PropyFee(address indexed bol, uint256 companyFee, uint256 networkGrowthFee);
     event PartyDesignated(uint party, address who);
     event PartyDeprived(uint party, address who);
     event ServiceChanged(string name, address oldAddress, address newAddress);

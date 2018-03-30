@@ -13,7 +13,7 @@ import "../base/Owned.sol";
  */
 contract RBCToken is StandardToken, Owned {
 
-  string public name = "PropyKindaToken";
+  string public name = "BFKindaToken";
   string public symbol = "PKT";
   uint public decimals = 8;
   uint public INITIAL_SUPPLY = 100000000 * 100000000;
