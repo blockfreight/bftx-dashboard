@@ -8,7 +8,10 @@ import Payment from "../../ui/payment"
 import Dashboard from "../../ui/dashboard"
 import Messages from "../../ui/messages";
 import Profile from "../../ui/profile";
-
+import Home from "../../ui/home";
+import Services from "../../ui/services";
+import Connect from "../../ui/connect";
+import Platform from "../../ui/platform";
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
 FlowRouter.route('/', {
@@ -18,18 +21,59 @@ FlowRouter.route('/', {
         }
         else {
             //mount(SecondApp, {main: <Login />});
-            FlowRouter.go('/login');
+            FlowRouter.go('/connect');
         }
     }
 });
+FlowRouter.route('/whitepaper', {
+    action(){
+        if (Meteor.userId()) {
+            window.location.replace('/BlockfreightWhitepaperFinalDraft.pdf');
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            window.location.replace( '/BlockfreightWhitepaperFinalDraft.pdf');
+        }
+    }
+});
+
 FlowRouter.route('/home', {
     action(){
         if (Meteor.userId()) {
             FlowRouter.go('/dashboard');
         }
         else {
-            //mount(SecondApp, {main: <Login />});
-            FlowRouter.go('/login');
+            mount(Layout, {main: <Home />});
+        }
+    }
+});
+FlowRouter.route('/connect', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Connect />});
+        }
+    }
+});
+FlowRouter.route('/services', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Services />});
+        }
+    }
+});
+FlowRouter.route('/platform', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Platform />});
         }
     }
 });

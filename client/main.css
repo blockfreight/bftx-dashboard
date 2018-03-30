@@ -14,6 +14,24 @@ h4 {
     height: 60px;
     line-height: 60px;
     background-color: #f5f5f5;
+
+}
+.tall{
+    height: calc(100vh - 100px);
+    width: auto;
+    min-width: 100%;
+    background-size: 100% auto;
+    background-repeat:no-repeat;
+
+
+}
+.tall-panel{
+    height: calc(100vh - 100px);
+
+    min-height: 100%;
+}
+body {
+    overflow: scroll;
 }
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)

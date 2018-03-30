@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 
-class Services extends React.Component{
+class Home extends React.Component{
     constructor(){
         super();
 
@@ -53,7 +53,7 @@ class Services extends React.Component{
 
     render() {
         return (
-            <div  className="mx-auto, tall" style={{ background: 'url("images/port.jpg")'}}  >
+            <div  className="mx-auto, tall" style={{ background: 'url("images/ship.jpg")'}}  >
                 <div  className="mx-auto tall-panel" style={{width: 758, background:"white", opacity:.9}}  >
 
 
@@ -61,29 +61,14 @@ class Services extends React.Component{
                 <Form className="entry-form" horizontal>
 
                      <FormGroup controlId="formHorizontalUsername">
-                        <Col componentClass={ControlLabel} sm={12}>
-                            <h4>Blockfreight™ Engineering</h4>
-                            <img width={700} src="images/map.png"/>
-                            <p>
-                            Blockfreight™ is working internally and approaching potential partners in the space of hardware and devices specific to supply chain applications.
-                            </p>
-                            <p>
-                            If you are interested in our work and want to partners you invited to participate in early testing of software by reference to the company.
-                            </p>
-                            <p>
-                            For more details please contact:
-                                <br/><br/>
-                            Julian Smith<br/>
-                            julian.smith@blockfreight.com<br/>
-                            Founder, President & CEO<br/>
-                            Blockfreight, Inc.
-                                <br/><br/>
-                            535 Mission St 14th floor<br/>
-                            San Francisco CA 94105<br/>
-                            +1 (415) 429-3924
+                        <Col componentClass={ControlLabel} sm={5}>
+                            <h4>Blockfreight™ Whitepaper v1.0.1</h4>
+                        </Col>
+                        <Col sm={10}>
+                            <p >
+                                <a href="pdf/BlockfreightWhitepaperFinalDraft.pdf">Download</a>
                             </p>
                         </Col>
-
                     </FormGroup>
 
                 </Form>
@@ -92,4 +77,4 @@ class Services extends React.Component{
         )
     }
 }
-export default  Services;
+export default  Home;
