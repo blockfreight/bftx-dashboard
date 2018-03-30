@@ -18,14 +18,14 @@ contract Users is Owned {
 
   mapping (address => User) users;
 
-  address public propyContractAddress;
+  address public bfContractAddress;
 
   modifier allowedWriters() {
-    if (contractOwner == msg.sender || propyContractAddress == msg.sender) _;
+    if (contractOwner == msg.sender || bfContractAddress == msg.sender) _;
   }
 
-  function setPropy(address propy) onlyContractOwner() {
-    propyContractAddress=propy;
+  function setPropy(address bf) onlyContractOwner() {
+    bfContractAddress=bf;
   }
 
   // Create & Update user
