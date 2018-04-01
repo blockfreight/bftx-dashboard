@@ -9,11 +9,13 @@ class Footer extends React.Component {
     {
         return(
             <footer className="footer">
-                <div className="container">
-                    <span className="text-muted">Copyright Blockfreight</span>
-                    <div style={{float:"right"}}>
 
-                        <div style={{fontSize:32, verticalAlign: "bottom"}}>
+                <div className="container">
+                    <div  style={{float:"left", fontSize:12, verticalAlign: "top"}}>
+                    <span className="text-muted">Copyright Blockfreight</span>
+                    </div>
+
+                        <div style={{float:"right", fontSize:30, verticalAlign: "top"}}>
                             {/*<SocialIcon url="http://twitter.com/blockfreight" />*/}
                             {/*<SocialIcon url="http://github.com/blockfreight" />*/}
                             {/*<SocialIcon url="http://facebook.com/blockfreight" />*/}
@@ -32,8 +34,9 @@ class Footer extends React.Component {
                         </div>
                     </div>
 
+                <div style={{}}>
                 </div>
-
+                <br />
                 <div>
 
 

@@ -12,6 +12,7 @@ import Home from "../../ui/home";
 import Services from "../../ui/services";
 import Connect from "../../ui/connect";
 import Platform from "../../ui/platform";
+import Bol from "../../ui/bol";
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
 FlowRouter.route('/', {
@@ -142,6 +143,17 @@ FlowRouter.route('/profile' +
     action(){
         if (Meteor.userId()) {
             mount(Layout, {main: <Profile/>});
+        }
+        else {
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/bol' +
+    '', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Bol/>});
         }
         else {
             FlowRouter.go('/login');

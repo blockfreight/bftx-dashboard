@@ -1,6 +1,7 @@
 import React from 'react';
 import {Col, Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 import abcui from "airbitz-core-js-ui";
+import Payment from "./payment";
 
 class Profile extends React.Component{
     constructor(){
@@ -36,23 +37,22 @@ class Profile extends React.Component{
         return (
             <div  className="mx-auto" style={{width: 500}} >
 
-
+                <Payment/>
 
                 <Form className="entry-form" horizontal>
 
                     <FormGroup controlId="formHorizontalUsername">
-                        <Col componentClass={ControlLabel} sm={5}>
-                            <h4>Profile</h4>
+                        <Col componentClass={ControlLabel} sm={6}>
+                            <h4>Edge Auth</h4>
+                            <p >
+                                Edge Enabled login allows for login via mobile phone
+                            </p>
                         </Col>
                         <Col sm={10}>
                             <FormGroup controlId="formHorizontalUsername">
-                                <Col componentClass={ControlLabel} sm={5}>
-                                    <h4>Edge</h4>
-                                </Col>
+
                                 <Col sm={10}>
-                                    <p >
-                                        Edge Enabled login allows for login via mobile phone
-                                    </p>
+
                                 </Col>
                             </FormGroup>
 
