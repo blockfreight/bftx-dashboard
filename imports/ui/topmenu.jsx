@@ -31,11 +31,17 @@ class TopMenu extends React.Component {
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul className="navbar-nav">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="dashboard">Network <span
+                                    <a className="nav-link" href="dashboard">Dashboard <span
                                         className="sr-only">(current)</span></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="bol">Bill of lading</a>
+                                    <a className="nav-link" href="network">Network</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="routes">Routes</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="bol">Documents</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="messages">Messages</a>

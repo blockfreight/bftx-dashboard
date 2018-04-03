@@ -13,6 +13,8 @@ import Services from "../../ui/services";
 import Connect from "../../ui/connect";
 import Platform from "../../ui/platform";
 import Bol from "../../ui/bol";
+import Routes from "../../ui/routes";
+import Network from "../../ui/network";
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
 FlowRouter.route('/', {
@@ -21,8 +23,7 @@ FlowRouter.route('/', {
             FlowRouter.go('/dashboard');
         }
         else {
-            //mount(SecondApp, {main: <Login />});
-            FlowRouter.go('/connect');
+            mount(Layout, {main: <Connect />});
         }
     }
 });
@@ -145,6 +146,28 @@ FlowRouter.route('/profile' +
             mount(Layout, {main: <Profile/>});
         }
         else {
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/network', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Network />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/routes', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Routes />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
             FlowRouter.go('/login');
         }
     }

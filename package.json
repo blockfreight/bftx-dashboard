@@ -19,6 +19,8 @@
     "ipfs-js": "0.0.11",
     "jquery": "^3.3.1",
     "js-sha256": "^0.9.0",
+    "material-ui": "^1.0.0-beta.40",
+    "material-ui-icons": "^1.0.0-beta.36",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
@@ -28,7 +30,8 @@
     "react-mounter": "^1.2.0",
     "react-social-icons": "^2.8.1",
     "save": "^2.3.2",
-    "stripe": "^5.6.1"
+    "stripe": "^5.6.1",
+    "web3": "^1.0.0-beta.33"
   },
   "devDependencies": {}
 }
