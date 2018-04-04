@@ -1,5 +1,7 @@
 import React from 'react';
 import {Col, Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+import abcui from "airbitz-core-js-ui";
+import Payment from "./payment";
 
 class Profile extends React.Component{
     constructor(){
@@ -15,36 +17,16 @@ class Profile extends React.Component{
     }
 
     signIn(){
-        const pattern = new RegExp(/@/),
-            username = this.username.value,
-            email = this.email.value,
-            password = this.password.value,
-            confirmPass = this.confirmPass.value;
+        _abcUi = abcui.makeABCUIContext({'apiKey': 'c0f8c038bd10d138288ff2bd56dbcb999d22801f',
+            'appId': 'com.blockfreight.dashboard',
+            'assetsPath': '/packages/node_modules/airbitz-core-js-ui/',
+            'vendorName': 'Blockfreight Dashboard',
+            'vendorImageUrl': 'https://mydomain.com/mylogo.png'});
+        _abcUi.openLoginWindow(function(error, account) {
+            _account = account;
+            this.refs.edgekey.value = "test"
+        });
 
-        let validation = pattern.test(email),
-            confirmation = password === confirmPass;
-
-        if(!validation){
-            this.setState({validEmail: {boxShadow: "0px 0px 10px 1px rgba(245,3,3,1)"}});
-        }
-        if(validation){
-            this.setState({validEmail: {boxShadow: "none"}});
-        }
-        if(!confirmation){
-            this.setState({confirmation: {boxShadow: "0px 0px 10px 1px rgba(245,3,3,1)"}});
-        }
-        if(confirmation){
-            this.setState({confirmation: {boxShadow: "none"}});
-        }
-
-        if(username && validation && confirmation){
-            // console.log('confirm');
-            Accounts.createUser({username, email, password}, () => {
-                Meteor.loginWithPassword(email, password, () => {
-                    FlowRouter.go('/home');
-                });
-            });
-        }
     }
 
     signInForm(){
@@ -55,18 +37,36 @@ class Profile extends React.Component{
         return (
             <div  className="mx-auto" style={{width: 500}} >
 
-
+                <Payment/>
 
                 <Form className="entry-form" horizontal>
 
                     <FormGroup controlId="formHorizontalUsername">
-                        <Col componentClass={ControlLabel} sm={5}>
-                            <h4>Profile</h4>
+                        <Col componentClass={ControlLabel} sm={6}>
+                            <h4>Edge Auth</h4>
+                            <p >
+                                Edge Enabled login allows for login via mobile phone
+                            </p>
                         </Col>
                         <Col sm={10}>
-                            <p >
-                               User profile placeholder
-                            </p>
+                            <FormGroup controlId="formHorizontalUsername">
+
+                                <Col sm={10}>
+
+                                </Col>
+                            </FormGroup>
+
+                            <FormGroup controlId="formHorizontalUsername">
+                                <Col componentClass={ControlLabel} sm={5}>
+                                    Token
+                                </Col>
+                                <Col sm={10}>
+                                    <input className="form-control" type="text" placeholder="Token Key" ref={ref => {this.edgekey = ref}}/>
+                                    <Button bsStyle="primary" onClick={this.signIn} >
+                                        Link Edge
+                                    </Button>
+                                </Col>
+                            </FormGroup>
                         </Col>
                     </FormGroup>
 

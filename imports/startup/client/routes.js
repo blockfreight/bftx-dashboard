@@ -8,7 +8,13 @@ import Payment from "../../ui/payment"
 import Dashboard from "../../ui/dashboard"
 import Messages from "../../ui/messages";
 import Profile from "../../ui/profile";
-
+import Home from "../../ui/home";
+import Services from "../../ui/services";
+import Connect from "../../ui/connect";
+import Platform from "../../ui/platform";
+import Bol from "../../ui/bol";
+import Routes from "../../ui/routes";
+import Network from "../../ui/network";
 const authed = () => Meteor.userId() || FlowRouter.go('/');
 
 FlowRouter.route('/', {
@@ -17,8 +23,59 @@ FlowRouter.route('/', {
             FlowRouter.go('/dashboard');
         }
         else {
+            mount(Layout, {main: <Connect />});
+        }
+    }
+});
+FlowRouter.route('/whitepaper', {
+    action(){
+        if (Meteor.userId()) {
+            window.location.replace('/BlockfreightWhitepaperFinalDraft.pdf');
+        }
+        else {
             //mount(SecondApp, {main: <Login />});
-            FlowRouter.go('/login');
+            window.location.replace( '/BlockfreightWhitepaperFinalDraft.pdf');
+        }
+    }
+});
+
+FlowRouter.route('/home', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Home />});
+        }
+    }
+});
+FlowRouter.route('/connect', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Connect />});
+        }
+    }
+});
+FlowRouter.route('/services', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Services />});
+        }
+    }
+});
+FlowRouter.route('/platform', {
+    action(){
+        if (Meteor.userId()) {
+            FlowRouter.go('/dashboard');
+        }
+        else {
+            mount(Layout, {main: <Platform />});
         }
     }
 });
@@ -36,7 +93,11 @@ FlowRouter.route('/login', {
 FlowRouter.route('/signup', {
     action(){
         if (Meteor.userId()) {
-            FlowRouter.go('/signup');
+            if (Meteor.userId()) {
+                Meteor.logout(()=>{
+                    FlowRouter.go('/signup');
+                });
+            }
         }
         else {
             mount(Layout, {main: <SignUp />});
@@ -63,9 +124,7 @@ FlowRouter.route('/payment' +
             mount(Layout, {main: <Payment />});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
         }
     }
 });
@@ -76,9 +135,7 @@ FlowRouter.route('/messages' +
             mount(Layout, {main: <Messages/>});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
         }
     }
 });
@@ -89,18 +146,63 @@ FlowRouter.route('/profile' +
             mount(Layout, {main: <Profile/>});
         }
         else {
-            FlowRouter.go('/signup');
-
-
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/network', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Network />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/transactions', {
+    action(){
+        if (Meteor.userId()) {
+            import Transactions from "../../ui/transaction"
+            mount(Layout, {main:<Transactions />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/routes', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Routes />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/bol' +
+    '', {
+    action(){
+        if (Meteor.userId()) {
+            mount(Layout, {main:<Bol/>});
+        }
+        else {
+            FlowRouter.go('/login');
         }
     }
 });
 FlowRouter.route('/logout', {
     action(){
         if (Meteor.userId()) {
-            Meteor.loggingOut();
-            FlowRouter.go('/');
+            Meteor.logout(()=>{
+                FlowRouter.go('/login');
+            });
+        }else {
+            FlowRouter.go('/login');
         }
-
     }
 });

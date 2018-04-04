@@ -6,15 +6,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.36",
+    "ag-grid": "^17.0.0",
+    "ag-grid-react": "^17.0.0",
     "airbitz-core-js-ui": "^0.1.7",
+    "base-58": "0.0.1",
+    "base58": "^1.0.1",
     "bcrypt": "^1.0.3",
+    "buffer": "^5.1.0",
+    "chainpoint-client": "^0.1.4",
     "imports": "^1.0.0",
+    "ipfs-api": "^19.0.0",
+    "ipfs-js": "0.0.11",
     "jquery": "^3.3.1",
+    "js-sha256": "^0.9.0",
+    "material-ui": "^1.0.0-beta.40",
+    "material-ui-icons": "^1.0.0-beta.36",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-dom-factories": "^1.0.2",
+    "react-komposer": "^2.0.0",
     "react-mounter": "^1.2.0",
-    "stripe": "^5.6.1"
-  }
+    "react-social-icons": "^2.8.1",
+    "save": "^2.3.2",
+    "stripe": "^5.6.1",
+    "web3": "^1.0.0-beta.33"
+  },
+  "devDependencies": {}
 }

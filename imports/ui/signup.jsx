@@ -53,6 +53,9 @@ class SignUp extends React.Component{
 
     render() {
         return (
+            <div  className="mx-auto, tall" style={{ background: 'url("images/cranes.jpg")'}}  >
+            <div  className="mx-auto tall-panel" style={{width: 758, background:"white", opacity:.9}}  >
+
             <Form className="entry-form" horizontal>
                 <FormGroup controlId="formHorizontalUsername">
                     <Col componentClass={ControlLabel} sm={2}>
@@ -94,17 +97,17 @@ class SignUp extends React.Component{
                     </Col>
                 </FormGroup>
 
-                <FormGroup>å
+                <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Button className="btn-mrg" onClick={this.signInForm}>
-                            Sign In
-                        </Button>
+
                         <Button bsStyle="primary" onClick={this.signIn} >
                             Register
                         </Button>
                     </Col>
                 </FormGroup>
             </Form>
+            </div>
+            </div>
         )
     }
 }

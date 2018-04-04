@@ -54,6 +54,9 @@ export default class Login extends React.Component {
     }
     render() {
         return (
+            <div  className="mx-auto, tall" style={{ background: 'url("images/sfgg.png")'}}  >
+            <div  className="mx-auto tall-panel" style={{width: 758, background:"white", opacity:.9}}  >
+
             <div className="col-md-2 col-md-offset-5 centered">
             <Form className="entry-form" horizontal>
                 {this.state.authError ? <Col className="error-label">Authentification failed!!</Col> : null}
@@ -77,21 +80,22 @@ export default class Login extends React.Component {
                     </Col>
                 </FormGroup>
 
-                <Row>
-                    <Col smOffset={2} sm={10}>
 
-                        <Button className="btn-mrg" onClick={this.edge}>
-                            Edge
-                        </Button>
-                        <Button className="btn-mrg" onClick={this.regForm}>
-                            Register
-                        </Button>
+                    <Col smOffset={2} sm={10}>
                         <Button bsStyle="primary" onClick={this.formHandler}>
                             Sign in
                         </Button>
+                        <Button className="btn-mrg" onClick={this.edge}>
+                            Edge
+                        </Button>
+
+
                     </Col>
+                <Row>
                 </Row>
             </Form>
+            </div>
+            </div>
             </div>
         );
     }
