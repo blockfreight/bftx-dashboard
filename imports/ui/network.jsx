@@ -150,7 +150,7 @@ export class Network extends React.Component{
                                         </Avatar>
                                     </ListItemAvatar>
                                     <ListItemText
-                                        primary="First name, Last name"
+                                        primary="Company Name"
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                     <ListItemSecondaryAction>

@@ -78,9 +78,9 @@ class Connect extends React.Component{
                                 enormous proportions . Fraudulent documents create risks to letters of credit, customs
                                 agencies, carriers, and many more. Hence, there is a need for documents moving from beginning
                                 to the end of supply chain to remain untampered. Adding documents as they are created to a
-                                public blockchain may reduce the possibility of double-spending and tampering.
+                                public blockchain will reduce the possibility of double-spending and tampering.
                                 This would remove the need for a trusted third party to verify documents and reduce
-                                time required to settle payments from banks and insurance companies. It could lower the costs of
+                                time required to settle payments from banks and insurance companies. It would lower the costs of
                                 tracking goods and services by expediting the validation of transactions between multiple parties
                                 along supply chain routes . This would have tremendous impact on trade finance.
                             </p>
@@ -101,6 +101,40 @@ class Connect extends React.Component{
 
 
                     </Form>
+
+
+                    <Col componentClass={ControlLabel} sm={12}>
+                        <h4>Connecting to Network</h4>
+                    </Col>
+                    <Col sm={12}>
+                        <p>
+                            The system communicates application to application through a decentralized network.
+                            <br/>
+                            In order exchange messages privately over an open network, asymetrical encryption is used to exchange messages among conserning parties.
+                            <br/>
+                            <br/>
+                            <h6>Example:</h6>
+
+                            When Bob wants to communicate privately with Alice, he gives her a public key, which is like a token that let's her encrypt messages that only Bob will be able
+                            to decrypt.
+                            <br/>
+                            To simplify this process Bob simply searches for Alice's domain name in the registry of apps on the network on the Network screen.
+                            <br/>
+                            When an application can be added to network multiple times for multiple roles. Each time the encryption key will be different. Depending on the role,
+                            privacy details for the transaction will be different.
+                            <br/>
+                            <br/>
+                            <h6>Example:</h6>
+
+                            If a role is Hauler the financial elements of the Bill Of Lading or invoice information would be hidden.
+
+                            <br/>
+                            <br/>
+                            Users of application would be managed by application administrators. Since the application is open source, the organization that deploys
+                            the application would have ability to cusomize how each user role is treated within the application with the upstream restrictions being set by
+                            application that initiated the transaction.
+                        </p>
+                    </Col>
                 </div>
             </div>
         )

@@ -38,6 +38,9 @@ class TopMenu extends React.Component {
                                     <a className="nav-link" href="network">Network</a>
                                 </li>
                                 <li className="nav-item">
+                                    <a className="nav-link" href="transactions">Transactions</a>
+                                </li>
+                                <li className="nav-item">
                                     <a className="nav-link" href="routes">Routes</a>
                                 </li>
                                 <li className="nav-item">
