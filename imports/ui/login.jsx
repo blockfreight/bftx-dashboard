@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Form, FormGroup, ControlLabel, Row, Button} from 'react-bootstrap';
-
+// import LoginLinks from "login-links"
 var abcui = require('airbitz-core-js-ui')
 
 export default class Login extends React.Component {
@@ -48,11 +48,25 @@ export default class Login extends React.Component {
 
     }
     edge(){
-        _abcUi.openLoginWindow(function(error, account) {
+        _abcUi.openLoginWindow((error, account)=> {
             _account = account;
-            Meteor.loginWithToken("hWzDlG1eq13j2BisLVgOmy+DnJm9nKBN14b1eMElxN8=",(err,res)=>{
-                FlowRouter.go("/dashboard");
-            });
+            // Meteor.loginWithToken("HPGw2NmB17r//l1Agz0+ssNXyfGu4yGoJmX9SzxA9Vs=",(err,res)=>{
+            //     FlowRouter.go("/dashboard");
+            // });
+            Meteor.call('GetEdgeToken', account.id, (error, result) => {
+                if (error) {
+                    alert(error);
+                } else {
+                    LoginLinks.loginWithToken(result.authorizationToken, (e, r) => {
+                        if (e) {
+                            // notify
+                            return;
+                        }
+                        FlowRouter.go("/dashboard");
+                        // logged in!
+                    });
+                }
+            })
 
 
         });
