@@ -40,12 +40,12 @@ class TopMenu extends React.Component {
                                 <li className="nav-item">
                                     <a className="nav-link" href="transactions">Transactions</a>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="routes">Routes</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="bol">Documents</a>
-                                </li>
+                                {/*<li className="nav-item">*/}
+                                    {/*<a className="nav-link" href="routes">Routes</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                    {/*<a className="nav-link" href="bol">Documents</a>*/}
+                                {/*</li>*/}
                                 <li className="nav-item">
                                     <a className="nav-link" href="messages">Messages</a>
                                 </li>
