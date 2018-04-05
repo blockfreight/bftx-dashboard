@@ -164,8 +164,20 @@ FlowRouter.route('/network', {
 FlowRouter.route('/transactions', {
     action(){
         if (Meteor.userId()) {
-            import Transactions from "../../ui/transaction"
+            import Transactions from "../../ui/transactions"
             mount(Layout, {main:<Transactions />});
+        }
+        else {
+            //mount(SecondApp, {main: <Login />});
+            FlowRouter.go('/login');
+        }
+    }
+});
+FlowRouter.route('/transaction', {
+    action(){
+        if (Meteor.userId()) {
+            import Transaction from "../../ui/transaction"
+            mount(Layout, {main:<Transaction />});
         }
         else {
             //mount(SecondApp, {main: <Login />});

@@ -65,7 +65,15 @@ class Dashboard extends React.Component{
                         </Col>
                         <Col sm={10}>
                             <p >
-                                Widgets Placeholder
+                                Locations:<br />
+                                Factory<br />
+                                First Carrier<br />
+                                Alongside Ship<br />
+                                On Board<br />
+                                Supplier<br />
+                                Supplier<br />
+                                Supplier<br />
+                                Supplier<br />
                             </p>
                         </Col>
                     </FormGroup>

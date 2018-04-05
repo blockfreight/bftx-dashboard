@@ -3,6 +3,7 @@ import buffer from "buffer/"
 import { sha256, sha224 } from 'js-sha256';
 const chp = require('chainpoint-client')
 import {BillOfLading} from "../../lib/collections";
+import {Meteor} from "meteor/meteor";
 
 
 Meteor.publish('BillOfLading', () => {
@@ -31,6 +32,7 @@ async function runIt (hash) {
     let proofs = await chp.getProofs(proofHandles)
     console.log("Proof Objects: Expand objects below to inspect.")
     console.log(proofs)
+    BillOfLading.insert({date:new Date(),userId:Meteor.userId(),IPFS:hash, proof:proofs})
     //await new Promise(resolve => setTimeout(resolve, 12000))
     // Verify every anchor in every Calendar proof
     let verifiedProofs = await chp.verifyProofs(proofs)
@@ -60,7 +62,7 @@ Meteor.methods({
             else {
                 console.log(res)
                // Meteor.bindEnvironment((res, cb) => {
-                    BillOfLading.insert({userId:Meteor.userId(),IPFS:res[0].hash})
+
                  //   return cb
                 //})
 
@@ -70,7 +72,7 @@ Meteor.methods({
                 // res.forEach(function(file){
                 //     addAttributeToEthRegistry(file.hash, payloadHash, type, cb);
                 // });
-                const chp = require('chainpoint-client')
+                //const chp = require('chainpoint-client')
                 r(res[0].hash);
               //  return cb
             }
@@ -128,3 +130,45 @@ Meteor.methods({
         })();
     }
 })
+
+SimpleRest.setMethodOptions('publickey', {
+    url: '/api/publickey',
+    getArgsFromRequest: function (request) {
+        const { headers } = request;
+
+        const data = {};
+        try{
+            // const readableState = request._readableState;
+            // const  buffer = readableState.buffer[0];
+            // const json = JSON.parse(buffer.toString('utf8'));
+        }catch(err){
+            console.log(err)
+        }
+
+        return [ headers, data ]
+    },
+    httpMethod: "get"
+});
+Meteor.methods({
+    publickey(headers, data) {
+        const metaData = {
+            type: 'GET',
+            path: '/api/publickey',
+            request: {
+                headers,
+                data
+            }
+        };
+
+       //add code that takes an existing private key and creates a new public key every request
+
+
+
+        return {result: '-----BEGIN PUBLIC KEY-----\n' +
+            'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0\n' +
+            'FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/\n' +
+            '3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB\n' +
+            '-----END PUBLIC KEY-----'};
+    }
+
+});

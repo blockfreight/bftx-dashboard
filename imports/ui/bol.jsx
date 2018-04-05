@@ -308,11 +308,18 @@ class Bol extends React.Component {
                         <AgGridColumn field="userId"></AgGridColumn>
                         <AgGridColumn field="IPFS"></AgGridColumn>
                         <AgGridColumn field="BFTX"></AgGridColumn>
+                        <AgGridColumn field="proof" cellRendererFramework={countryCellRenderer}
+                                      filterParams={{cellRenderer: Bol.countryCellRenderer, cellHeight:20}}></AgGridColumn>
                     </AgGridReact>
                 </div>
             </div>
         )
     }
+    static countryCellRenderer(proof)
+    {
+        return proof[0].hashIdNode;
+    }
+
 }
 import {compose} from 'react-komposer';
 //import SingleContract from '../../ui/pages/SingleContract';

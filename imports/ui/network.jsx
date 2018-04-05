@@ -25,7 +25,7 @@ import Checkbox from 'material-ui/Checkbox';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import FolderIcon from 'material-ui-icons/AccountCircle';
-import AddIcon from 'material-ui-icons/Add';
+import AddIcon from 'material-ui-icons/ChevronRight';
 
 const styles = theme => ({
     root: {
@@ -59,6 +59,7 @@ export class Network extends React.Component{
 
         this.signIn = this.signIn.bind(this);
         this.signInForm = this.signInForm.bind(this);
+        this.c = this.c.bind(this);
     }
 
 
@@ -128,7 +129,10 @@ export class Network extends React.Component{
         console.log(selectedRows[0].IPFS);
        // document.querySelector("#selectedRows").innerHTML = selectedRowsString;
     }
-
+    c()
+    {
+        FlowRouter.go("/transaction")
+    }
     render() {
         let { classes } = this.props;
         const { dense, secondary } = this.state;
@@ -153,8 +157,8 @@ export class Network extends React.Component{
                                         primary="Company Name"
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
-                                    <ListItemSecondaryAction>
-                                        <IconButton aria-label="Delete">
+                                    <ListItemSecondaryAction onClick={this.c}>
+                                        <IconButton aria-label="Delete" >
                                             <AddIcon />
                                         </IconButton>
                                     </ListItemSecondaryAction>
