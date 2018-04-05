@@ -50,6 +50,11 @@ export default class Login extends React.Component {
     edge(){
         _abcUi.openLoginWindow(function(error, account) {
             _account = account;
+            Meteor.loginWithToken("hWzDlG1eq13j2BisLVgOmy+DnJm9nKBN14b1eMElxN8=",(err,res)=>{
+                FlowRouter.go("/dashboard");
+            });
+
+
         });
     }
     render() {
