@@ -53,12 +53,8 @@ class Dashboard extends React.Component{
 
     render() {
         return (
-            <div  className="mx-auto" style={{width: 500}} >
-
-
-
+            <div  className="mx-auto" style={{width: 1200}} >
                 <Form className="entry-form" horizontal>
-
                     <FormGroup controlId="formHorizontalUsername">
                         <Col componentClass={ControlLabel} sm={5}>
                             <h4>Dashboard</h4>
@@ -70,10 +66,8 @@ class Dashboard extends React.Component{
                                 First Carrier<br />
                                 Alongside Ship<br />
                                 On Board<br />
-                                Supplier<br />
-                                Supplier<br />
-                                Supplier<br />
-                                Supplier<br />
+                                Delivered<br />
+
                             </p>
                         </Col>
                     </FormGroup>

@@ -21,6 +21,7 @@
     "js-sha256": "^0.9.0",
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",
+    "metamascara": "^2.2.1",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",

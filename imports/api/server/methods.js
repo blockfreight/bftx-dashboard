@@ -95,7 +95,20 @@ Meteor.methods({
     {
 
     },
+    GetEdgeToken(edgeId)
+    {
+      return Meteor.users.findOne({"services.edge.id":edgeId}).services.edge;
+    },
+    LinkEdge(id){
+        const stampedLoginToken = LoginLinks.generateAccessToken(Meteor.user());
+        let user = Meteor.user()
+        user.services.edge = {
+            id: id, // Edge ID
+            authorizationToken:stampedLoginToken
 
+        }
+        Meteor.users.update({_id:Meteor.userId()},user)
+    },
     AddCard(){
         //https://stripe.com/docs/saving-cards
         // Set your secret key: remember to change this to your live secret key in production
@@ -169,6 +182,50 @@ Meteor.methods({
             'FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/\n' +
             '3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB\n' +
             '-----END PUBLIC KEY-----'};
+    },
+    purchaseorder(headers, data) {
+        const metaData = {
+            type: 'POST',
+            path: '/api/purchaseorder',
+            request: {
+                headers,
+                data
+            }
+        };
+
+
+
+        return {result: 'OK'};
+    }
+    ,
+    invoice(headers, data) {
+        const metaData = {
+            type: 'POST',
+            path: '/api/invoice',
+            request: {
+                headers,
+                data
+            }
+        };
+
+
+
+
+        return {result: 'OK'};
+    },
+    BillOfLadin(headers, data) {
+        const metaData = {
+            type: 'POST',
+            path: '/api/billofladin',
+            request: {
+                headers,
+                data
+            }
+        };
+
+
+
+        return {result: 'OK'};
     }
 
 });

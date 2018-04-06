@@ -139,7 +139,7 @@ export class Network extends React.Component{
         classes= PropTypes.object.isRequired;
         console.log(this.props)
         return (
-            <div  className="mx-auto" style={{width: 900}} >
+            <div  className="mx-auto" style={{width: 1200}} >
                 <Grid item xs={12} md={6}>
                     <Typography variant="title" className={classes.title}>
                         Resource Network

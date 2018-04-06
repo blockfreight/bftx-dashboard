@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Form, FormGroup, ControlLabel, Row, Button} from 'react-bootstrap';
-
+// import LoginLinks from "login-links"
 var abcui = require('airbitz-core-js-ui')
 
 export default class Login extends React.Component {
@@ -48,8 +48,21 @@ export default class Login extends React.Component {
 
     }
     edge(){
-        _abcUi.openLoginWindow(function(error, account) {
-            _account = account;
+        _abcUi.openLoginWindow((error, account)=> {
+            Meteor.call('GetEdgeToken', account.id, (error, result) => {
+                if (error) {
+                    alert(error);
+                } else {
+                    LoginLinks.loginWithToken(result.authorizationToken, (e, r) => {
+                        if (e) {
+                            //todo:add material ui notification
+                            return;
+                        }
+                        FlowRouter.go("/dashboard");
+                        // logged in!
+                    });
+                }
+            })
         });
     }
     render() {
