@@ -49,17 +49,13 @@ export default class Login extends React.Component {
     }
     edge(){
         _abcUi.openLoginWindow((error, account)=> {
-            _account = account;
-            // Meteor.loginWithToken("HPGw2NmB17r//l1Agz0+ssNXyfGu4yGoJmX9SzxA9Vs=",(err,res)=>{
-            //     FlowRouter.go("/dashboard");
-            // });
             Meteor.call('GetEdgeToken', account.id, (error, result) => {
                 if (error) {
                     alert(error);
                 } else {
                     LoginLinks.loginWithToken(result.authorizationToken, (e, r) => {
                         if (e) {
-                            // notify
+                            //todo:add material ui notification
                             return;
                         }
                         FlowRouter.go("/dashboard");
@@ -67,8 +63,6 @@ export default class Login extends React.Component {
                     });
                 }
             })
-
-
         });
     }
     render() {

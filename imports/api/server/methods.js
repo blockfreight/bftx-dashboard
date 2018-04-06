@@ -100,18 +100,8 @@ Meteor.methods({
       return Meteor.users.findOne({"services.edge.id":edgeId}).services.edge;
     },
     LinkEdge(id){
+        const stampedLoginToken = LoginLinks.generateAccessToken(Meteor.user());
         let user = Meteor.user()
-        const stampedLoginToken = LoginLinks.generateAccessToken(user);
-        //hashStampedToken = Accounts._hashStampedToken(stampedLoginToken)
-        console.log(stampedLoginToken)
-        // var stampedLoginToken = Accounts._generateStampedLoginToken();
-        // hashStampedToken = Accounts._hashStampedToken(stampedLoginToken)
-        // //Accounts._insertLoginToken(Meteor.userId(), stampedLoginToken);
-        // Meteor.users.update(user._id, {
-        //     $push: {
-        //         'services.accessTokens.tokens': hashStampedToken
-        //     }
-        // })
         user.services.edge = {
             id: id, // Edge ID
             authorizationToken:stampedLoginToken

@@ -144,7 +144,7 @@ class Messages extends React.Component{
     render() {
         classes= PropTypes.object.isRequired;
         return (
-            <div  className="mx-auto" style={{width: 900}} >
+            <div  className="mx-auto" style={{width: 1200}} >
                 <Form className="entry-form" horizontal>
 
                     <FormGroup controlId="formHorizontalUsername">

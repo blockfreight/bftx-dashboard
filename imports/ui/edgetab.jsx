@@ -6,7 +6,7 @@ export default  class EdgeTab extends React.Component{
     constructor() {
         super();
         this.LinkEdge = this.LinkEdge.bind(this);
-        this.state ={key:"a"}
+        this.state ={key:""}
     }
 
 
