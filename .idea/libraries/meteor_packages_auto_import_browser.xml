@@ -143,6 +143,9 @@
         <item url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging.js" />
         <item url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging_cordova.js" />
         <item url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging_test.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/client/login-links.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/common/accessToken.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/common/login-links.js" />
         <item url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/minifier-tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/minifier.js" />
         <item url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/urlrewriting-tests.js" />
@@ -370,6 +373,9 @@
       <root url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging.js" />
       <root url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging_cordova.js" />
       <root url="file://$USER_HOME$/.meteor/packages/logging/1.1.19/web.browser/logging_test.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/client/login-links.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/common/accessToken.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/loren_login-links/0.1.3/web.browser/common/login-links.js" />
       <root url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/minifier-tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/minifier.js" />
       <root url="file://$USER_HOME$/.meteor/packages/minifier-css/1.3.1/web.browser/urlrewriting-tests.js" />
