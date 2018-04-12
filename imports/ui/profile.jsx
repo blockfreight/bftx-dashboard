@@ -39,7 +39,7 @@ class Profile extends React.Component{
 
     signIn(){
         _abcUi = abcui.makeABCUIContext({'apiKey': 'c0f8c038bd10d138288ff2bd56dbcb999d22801f',
-            'appId': 'com.blockfreight.dashboard',
+            'appId': 'blockfreight.com',
             'assetsPath': '/packages/node_modules/airbitz-core-js-ui/',
             'vendorName': 'Blockfreight Dashboard',
             'vendorImageUrl': 'https://mydomain.com/mylogo.png'});
@@ -62,6 +62,13 @@ class Profile extends React.Component{
     render() {
         const { classes } = this.props;
         const { value } = this.state;
+        const metamask = require('metamascara')
+        const ethereumProvider = metamask.createDefaultProvider({
+            host: 'http://localhost:9545'
+        }) // or what ever port you use
+
+
+
         return (
             <div  className="mx-auto tall-panel" style={{width: 1200, background:"white", opacity:.9}}  >
                 <Paper style={{ width: 1200 }}>

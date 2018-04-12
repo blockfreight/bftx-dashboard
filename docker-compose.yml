@@ -1,0 +1,68 @@
+version: '2'
+services:
+
+    # Configure Nginx
+    nginx_proxy_meteor:
+        container_name: nginx_proxy_meteor
+        image: jwilder/nginx-proxy
+        volumes:
+           - /etc/nginx/vhost.d
+           - /usr/share/nginx/html
+           - /var/run/docker.sock:/tmp/docker.sock:ro
+           - ./certs:/etc/nginx/certs:ro
+        ports:
+           - 80:80
+           - 443:443
+        labels:
+           com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+        restart: always
+
+    nginx_letsencrypt_companion_meteor:
+        container_name: nginx_letsencrypt_companion_meteor
+        image: jrcs/letsencrypt-nginx-proxy-companion
+        volumes:
+            - ./certs:/etc/nginx/certs:rw
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        volumes_from:
+            - nginx_proxy_meteor
+        depends_on:
+            - nginx_proxy_meteor
+        restart: always
+
+    # Configure Ofbiz
+    app:
+        container_name: dashboard_meteor
+        image: blockfreight/dashboard
+        external_links:
+           - mongo:mongo
+        depends_on:
+           - mongo_meteor
+           - nginx_letsencrypt_companion_meteor
+        ports:
+             - "3000:3000"
+        environment:
+          DEFAULT_HOST: ${ENV_DEFUALT_HOST}
+          VIRTUAL_HOST: ${ENV_VIRTUAL_HOST}
+          LETSENCRYPT_HOST: ${ENV_LETSENCRYPT_HOST}
+          LETSENCRYPT_EMAIL: ${ENV_LETSENCRYPT_EMAIL}
+          MONGO_USER: ${ENV_MONGO_USER}
+          MONGO_PASSWORD: ${ENV_MONGO_PASSWORD}
+          MONGO_URL: ${ENV_MONGO_URL}
+          MONGO_OPLOG_URL: ${ENV_MONGO_OPLOG_URL}
+          MAIL_URL: ${ENV_MAIL_URL}
+          ROOT_URL: ${ENV_ROOT_URL}
+        restart: always
+
+    # Configure PostgreSQL
+    mongo_meteor:
+        container_name: mongo_meteor
+        image: mongo
+        command: mongod --storageEngine=wiredTiger
+        ports:
+          - 27018:27018
+        volumes:
+            - mongodata:/data/db
+        restart: always
+
+volumes:
+      mongodata:
