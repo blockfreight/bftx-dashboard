@@ -85,7 +85,7 @@ class Transactions extends React.Component{
         classes= PropTypes.object.isRequired;
         return (
 
-                <div  className="mx-auto tall-panel" style={{width: 1200, background:"white", opacity:.9}}  >
+                <div  className="mx-auto " style={{width: 1200, background:"white", opacity:.9}}  >
 
                     <h4>Transactions</h4>
                     <br/>

@@ -18,6 +18,9 @@ import Network from "../ui/network"
 import Messages from "./messages";
 import Contract from "./contract"
 import InvoiceCompose from "./invoicecompose"
+
+import {RegularCard, P} from "./components";
+
 function TabContainer(props) {
     return (
         <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -52,7 +55,7 @@ class Transaction extends React.Component{
         const { classes } = this.props;
         const { value } = this.state;
         return (
-            <div  className="mx-auto tall-panel" style={{width: 1200, background:"white", opacity:.9}}  >
+            <div  className="mx-auto " style={{width: 1200, background:"white", opacity:.9}}  >
             <Paper style={{ width: 1200 }}>
                 <AppBar position="static" color="default">
                 <Tabs
@@ -73,13 +76,48 @@ class Transaction extends React.Component{
                 </Tabs>
             </AppBar>
                 {/*<br /><img src="/images/po_order_entry.png" /><br/>Send*/}
-                {value === 0 && <TabContainer><POCompose/> </TabContainer>}
-                {value === 1 && <TabContainer><Contract /></TabContainer>}
-                {value === 2 && <TabContainer><InvoiceCompose /></TabContainer>}
-                {value === 3 && <TabContainer><BolCompose /></TabContainer>}
-                {value === 4 && <TabContainer><Routes /></TabContainer>}
-                {value === 5 && <TabContainer><Network/></TabContainer>}
-                {value === 6 && <TabContainer><Messages /></TabContainer>}
+                {value === 0 && <TabContainer> <RegularCard
+                    cardTitle="Create Purchase Order"
+                    cardSubtitle=""
+                    content={<POCompose/>}
+                    footer={<P></P>}
+                /> </TabContainer>}
+                {value === 1 && <TabContainer><RegularCard
+                    cardTitle="Sign Contract"
+                    cardSubtitle=""
+                    content={<Contract/>}
+                    footer={<P></P>}
+                /></TabContainer>}
+                {value === 2 && <TabContainer><RegularCard
+                    cardTitle="Create Invoice"
+                    cardSubtitle=""
+                    content={<InvoiceCompose/>}
+                    footer={<P></P>}
+                /></TabContainer>}
+                {value === 3 && <TabContainer><RegularCard
+                    cardTitle="Bill of Lading"
+                    cardSubtitle=""
+                    content={<BolCompose/>}
+                    footer={<P></P>}
+                /></TabContainer>}
+                {value === 4 && <TabContainer><RegularCard
+                    cardTitle="Routes"
+                    cardSubtitle=""
+                    content={<Routes/>}
+                    footer={<P></P>}
+                /></TabContainer>}
+                {value === 5 && <TabContainer><RegularCard
+                    cardTitle="Contact list"
+                    cardSubtitle=""
+                    content={<Network/>}
+                    footer={<P></P>}
+                /></TabContainer>}
+                {value === 6 && <TabContainer><RegularCard
+                    cardTitle="View Messages"
+                    cardSubtitle=""
+                    content={<Messages/>}
+                    footer={<P></P>}
+                /></TabContainer>}
             </Paper>
             </div>
         );

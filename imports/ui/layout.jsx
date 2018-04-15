@@ -1,7 +1,7 @@
 import React from 'react';
 import TopMenu from "./topmenu";
-import Footer from "./footer";
 
+import Footer from "./components/Footer/Footer";
 
 export default class Layout extends React.Component {
     render() {
@@ -15,6 +15,7 @@ export default class Layout extends React.Component {
                     {this.props.main}
                     </main>
                 </div>
+                <Footer/>
                 {/*<Footer/>*/}
             </div>
 

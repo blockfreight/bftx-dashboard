@@ -17,6 +17,8 @@ import Typography from 'material-ui/Typography';
 import Placeholder from "./placeholder";
 import UserInfo from "./userinfo"
 import EdgeTab from "./edgetab";
+
+import {RegularCard, P} from "./components";
 function TabContainer(props) {
     return (
         <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -70,7 +72,7 @@ class Profile extends React.Component{
 
 
         return (
-            <div  className="mx-auto tall-panel" style={{width: 1200, background:"white", opacity:.9}}  >
+            <div  className="mx-auto" style={{width: 1200, background:"white", opacity:.9}}  >
                 <Paper style={{ width: 1200 }}>
                     <AppBar position="static" color="default">
                         <Tabs
@@ -91,13 +93,50 @@ class Profile extends React.Component{
                         </Tabs>
                     </AppBar>
                     {/*<br /><img src="/images/po_order_entry.png" /><br/>Send*/}
-                    {value === 0 && <TabContainer><UserInfo/></TabContainer>}
-                    {value === 1 && <TabContainer><Payment/> </TabContainer>}
-                    {value === 2 && <TabContainer><Placeholder/></TabContainer>}
-                    {value === 3 && <TabContainer><Placeholder /></TabContainer>}
-                    {value === 4 && <TabContainer><Placeholder /></TabContainer>}
-                    {value === 5 && <TabContainer><Placeholder/></TabContainer>}
-                    {value === 6 && <TabContainer><EdgeTab /></TabContainer>}
+                    {value === 0 && <TabContainer>
+                        <RegularCard
+                        cardTitle="Update Profile"
+                        cardSubtitle="Change user info"
+                        content={<UserInfo/>}
+                        footer={<P></P>}
+                        />
+                    </TabContainer>}
+                    {value === 1 && <TabContainer><RegularCard
+                        cardTitle="Update Upayment"
+                        cardSubtitle="Your card will not be charged at this time. It will be kept on file and will be used as the default for future charges."
+                        content={<Payment/>}
+                        footer={<P></P>}
+                    />  </TabContainer>}
+                    {value === 2 && <TabContainer><RegularCard
+                        cardTitle="Update Ethereum Private Key"
+                        cardSubtitle="Private key stays on your computer"
+                        content={<Placeholder/>}
+                        footer={<P></P>}
+                    /></TabContainer>}
+                    {value === 3 && <TabContainer><RegularCard
+                        cardTitle="Update Counter Party Cash Private Key"
+                        cardSubtitle="Private key stays on your computer"
+                        content={<Placeholder/>}
+                        footer={<P></P>}
+                    /></TabContainer>}
+                    {value === 4 && <TabContainer><RegularCard
+                        cardTitle="Update Counter Party Private Key"
+                        cardSubtitle="Private key stays on your computer"
+                        content={<Placeholder/>}
+                        footer={<P></P>}
+                    /></TabContainer>}
+                    {value === 5 && <TabContainer><RegularCard
+                        cardTitle="Update Tendermint Private Key"
+                        cardSubtitle="Private key stays on your computer"
+                        content={<Placeholder/>}
+                        footer={<P></P>}
+                    /><Placeholder/></TabContainer>}
+                    {value === 6 && <TabContainer><RegularCard
+                        cardTitle="Link Edge Authentication"
+                        cardSubtitle="Install Mobile Edge App from Apple App Store or Google Play Store"
+                        content={<EdgeTab/>}
+                        footer={<P></P>}
+                    /></TabContainer>}
                 </Paper>
             </div>
         );

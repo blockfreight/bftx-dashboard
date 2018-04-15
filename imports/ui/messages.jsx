@@ -144,19 +144,8 @@ class Messages extends React.Component{
     render() {
         classes= PropTypes.object.isRequired;
         return (
-            <div  className="mx-auto" style={{width: 1200}} >
-                <Form className="entry-form" horizontal>
+            <div  className="mx-auto" style={{width: 1100}} >
 
-                    <FormGroup controlId="formHorizontalUsername">
-                        <Col componentClass={ControlLabel} sm={5}>
-                            <h4>Messages</h4>
-                        </Col>
-                        <Col sm={10}>
-
-                        </Col>
-                    </FormGroup>
-
-                </Form>
                 <Paper className={classes.root}>
                     <Table className={classes.table}>
                         <TableHead>

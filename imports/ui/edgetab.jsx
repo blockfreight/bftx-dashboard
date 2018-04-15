@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "material-ui";
+import {Button} from "./components";
 import abcui from "airbitz-core-js-ui";
 
 export default  class EdgeTab extends React.Component{
@@ -37,7 +37,7 @@ export default  class EdgeTab extends React.Component{
         return(
             <div>
             <input className="form-control" value={this.state.key} type="text" placeholder="Token Key" ref={ref => {this.edgekey = ref}}/>
-                                            <Button bsStyle="primary" onClick={this.LinkEdge} >
+                                            <Button bsStyle="primary" type="button" color="primary"  onClick={this.LinkEdge} >
                                                 Link Edge
                                             </Button>
              </div>

@@ -1,5 +1,28 @@
 import React from 'react';
 import {Col, Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+import {Grid, withStyles} from 'material-ui';
+import ChartistGraph from 'react-chartist';
+import { AccessTime } from 'material-ui-icons';
+//import { emailsSubscriptionChart } from './variables/charts';
+//import  ChartCard  from './components/Cards/ChartCard';
+import PropTypes from 'prop-types';
+import chartCardStyle from "./variables/styles/chartCardStyle";
+import { StatsCard } from './components';
+import { ContentCopy, Warning, AccountBalance, CompareArrows, Event  } from 'material-ui-icons';
+import {RegularCard, P} from "./components";
+import Log from "./log.jsx"
+//import ChartistGraph from 'react-chartist';
+//import { AccessTime } from 'material-ui-icons';
+//import { emailsSubscriptionChart } from './variables/charts';
+import { ChartCard } from './components';
+import dashboardStyle from "./variables/styles/dashboardStyle";
+
+import {
+    dailySalesChart,
+    emailsSubscriptionChart,
+    completedTasksChart
+} from "./variables/charts";
+
 
 class Dashboard extends React.Component{
     constructor(){
@@ -50,31 +73,106 @@ class Dashboard extends React.Component{
     signInForm(){
         FlowRouter.go('/');
     }
+c()
+{
+    return (
+        <div>
+            <Grid container spacing={24}>
+                <Grid item xs={8} sm={4}>
+                <StatsCard
+                    icon={AccountBalance}
+                    iconColor="green"
+                    title="Escrow"
+                    description="$5,323,432"
+                    small="USD"
+                    statIcon={Warning}
+                    statIconColor="danger"
+                    statLink={{text: "Lookup...", href: "#pablo"}}
+                />
+                </Grid>
+                <Grid item xs={8} sm={4}>
+                <StatsCard
+                    icon={CompareArrows}
+                    iconColor="orange"
+                    title="Containers in transit"
+                    description="4"
+                    small=""
+                    statIcon={Warning}
+                    statIconColor="danger"
+                    statLink={{text: "Lookup...", href: "#pablo"}}
+                />
+                </Grid>
+                <Grid item xs={8} sm={4}>
+                <StatsCard
+                    icon={Event}
+                    iconColor="blue"
+                    title="Pending"
+                    description="4"
+                    small=""
+                    statIcon={Warning}
+                    statIconColor="danger"
+                    statLink={{text: "Lookup...", href: "#pablo"}}
+                />
+                </Grid>
+                <Log />
+                {/*Locations:<br />*/}
+                {/*Factory<br />*/}
+                {/*First Carrier<br />*/}
+                {/*Alongside Ship<br />*/}
+                {/*On Board<br />*/}
+                {/*Delivered<br />*/}
 
+                {/*<ChartCard*/}
+                    {/*chart={*/}
+                        {/*<ChartistGraph*/}
+                            {/*className="ct-chart"*/}
+                            {/*data={emailsSubscriptionChart.data}*/}
+                            {/*type="Bar"*/}
+                            {/*options={emailsSubscriptionChart.options}*/}
+                            {/*responsiveOptions={emailsSubscriptionChart.responsiveOptions}*/}
+                            {/*listener={*/}
+                                {/*emailsSubscriptionChart.animation*/}
+                            {/*}*/}
+                        {/*/>*/}
+                    {/*}*/}
+                    {/*chartColor="orange"*/}
+                    {/*title="Email Subscriptions"*/}
+                    {/*text="Last Campaign Performance"*/}
+                    {/*statIcon={AccessTime}*/}
+                    {/*statText="campaign sent 2 days ago"*/}
+                {/*/>*/}
+                {/*<ChartistGraph*/}
+                    {/*className="ct-chart"*/}
+                    {/*data={emailsSubscriptionChart.data}*/}
+                    {/*type="Bar"*/}
+                    {/*options={emailsSubscriptionChart.options}*/}
+                    {/*responsiveOptions={emailsSubscriptionChart.responsiveOptions}*/}
+                    {/*listener={*/}
+                        {/*emailsSubscriptionChart.animation*/}
+                    {/*}*/}
+                {/*/>*/}
+            </Grid>
+        </div>
+    )
+}
     render() {
         return (
             <div  className="mx-auto" style={{width: 1200}} >
-                <Form className="entry-form" horizontal>
-                    <FormGroup controlId="formHorizontalUsername">
-                        <Col componentClass={ControlLabel} sm={5}>
-                            <h4>Dashboard</h4>
-                        </Col>
-                        <Col sm={10}>
-                            <p >
-                                Locations:<br />
-                                Factory<br />
-                                First Carrier<br />
-                                Alongside Ship<br />
-                                On Board<br />
-                                Delivered<br />
+                <RegularCard
+                    cardTitle="Dashboard"
+                    cardSubtitle=""
+                    content={this.c()}
+                    footer={<P></P>}
+                />
 
-                            </p>
-                        </Col>
-                    </FormGroup>
 
-                </Form>
+
             </div>
         )
     }
 }
-export default  Dashboard;
+Dashboard.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+import appStyle from "./variables/styles/appStyle.jsx";
+export default (Dashboard);

@@ -2,6 +2,7 @@ import React from "react"
 import {TextField, Grid, Paper}from 'material-ui';
 import PropTypes from 'prop-types';
 import {withStyles} from "material-ui/styles/index";
+import {Button} from "./components";
 
 styles = theme => ({
     container: {
@@ -49,6 +50,7 @@ class UserInfo extends React.Component{
         const { classes } = this.props;
         return(<div>
             <Grid item xs={8} sm={4}>
+
                 <Paper className={classes.paper}>
                     <TextField
                         id="ponumber"
@@ -107,6 +109,9 @@ class UserInfo extends React.Component{
                         margin="normal"
                     />
                 </Paper>
+                <Button bsStyle="primary" type="button" color="primary"  onClick={this.LinkEdge} >
+                    Update
+                </Button>
             </Grid>
         </div>)
     }
